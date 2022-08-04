@@ -66,8 +66,8 @@
 
 <svelte:head>
 	<title>portfolio</title>
-	<meta name="og:title" content="portfolio" />
-	<meta name="description" content="a collection of various things" />
+	<meta name="og:title" content="polar.blue" />
+	<meta name="description" content={`${age.toPrecision(1)} y/o software engineer & community manager`} />
 	<meta name="og:description" content="a collection of various things" />
 	<meta name="theme-color" media="(prefers-color-scheme: light)" content="#f9f0f5" />
 	<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1C2433" />
@@ -79,7 +79,7 @@
 	<div class="flex flex-col gap-7">
 		<div class="min-h-[3em] lg:min-h-0">
 			<h1 class="text-arc-700 dark:text-arc-300">
-				<span class="dark:text-arc-blue">polar, <span class="text-arc-700 dark:text-arc-200">{age.toPrecision(10)} y/o </span> software engineer</span>
+				<span class="dark:text-arc-blue">polar, <span class="text-arc-700 dark:text-arc-200">{age.toPrecision(11)} y/o </span> software engineer & community manager</span>
 			</h1>
 		</div>
 		<div>
