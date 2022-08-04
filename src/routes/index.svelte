@@ -67,8 +67,8 @@
 <svelte:head>
 	<title>portfolio</title>
 	<meta name="og:title" content="polar.blue" />
-	<meta name="description" content={`${age.toPrecision(1)} y/o software engineer & community manager`} />
-	<meta name="og:description" content={`${age.toPrecision(1)} y/o software engineer & community manager`} />
+	<meta name="description" content={`${age.toPrecision(4)} y/o software engineer & community manager`} />
+	<meta name="og:description" content={`${age.toPrecision(4)} y/o software engineer & community manager`} />
 	<meta name="theme-color" media="(prefers-color-scheme: light)" content="#f9f0f5" />
 	<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1C2433" />
 </svelte:head>
