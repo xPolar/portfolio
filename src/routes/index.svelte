@@ -58,7 +58,6 @@
 	onMount(async () => {
 		const { useLanyard } = await import('svelte-lanyard');
 		data = useLanyard('619284841187246090', { type: 'rest', restInterval: 1e3 });
-		console.log("lanyard mounted")
 	});
 	$: codeData = getCodeData($data);
 	$: appleMusicData = getAppleMusicData($data);

@@ -72,8 +72,6 @@ export const getOtherActivities = (
 			) && a.type === 0
 	);
 
-	console.log(otherActivities);
-
 	return otherActivities?.map?.((activity) => ({
 		name: activity.name,
 		start: activity.timestamps ? new Date(activity.timestamps.start) : undefined
