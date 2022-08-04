@@ -170,10 +170,12 @@
 				<span class="text-arc-800 dark:text-arc-300"
 					>working on <span class="text-arc-700 dark:text-arc-200">{codeData.folder?.toLocaleLowerCase()}</span></span
 				>
-				<span class="text-arc-700 dark:text-arc-400"
-					>currently 
-					<span class="text-arc-700 dark:text-arc-200">{codeData.editing?.toLocaleLowerCase()}</span>
-				</span>
+				{#if codeData.editing} 
+					<span class="text-arc-700 dark:text-arc-400"
+						>currently 
+						<span class="text-arc-700 dark:text-arc-200">{codeData.editing?.toLocaleLowerCase()}</span>
+					</span>
+				{/if}
 			</div>
 		{/if}
 		{#if otherActivities}
