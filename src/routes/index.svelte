@@ -164,8 +164,8 @@
 					>working on <span class="text-arc-700 dark:text-arc-200">{codeData.folder?.toLocaleLowerCase()}</span></span
 				>
 				<span class="text-arc-700 dark:text-arc-400"
-					>currently writing
-					<span class="text-arc-700 dark:text-arc-200">{codeData.lang}</span>
+					>currently 
+					<span class="text-arc-700 dark:text-arc-200">{codeData.editing?.toLocaleLowerCase()}</span>
 				</span>
 			</div>
 		{/if}
