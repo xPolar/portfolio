@@ -4,11 +4,11 @@ module.exports = {
 	theme: {
 		extend: {
 			fontFamily: {
-				cascadia: ['CaskaydiaCove Nerd Font Mono', 'monospace']
+				jetbrains: ['JetBrainsMono', 'monospace']
 			},
 			colors: {
-				ocean: {
-					900: '#1F232C',
+				arc: {
+					900: '#576375',
 					800: '#2B303B',
 					700: '#343D46',
 					600: '#4F5B66',

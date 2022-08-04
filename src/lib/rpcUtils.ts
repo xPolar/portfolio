@@ -1,46 +1,61 @@
 import type { useLanyard } from 'svelte-lanyard';
 import type { Readable } from 'svelte/store';
-type ExtractData<Type> = Type extends Readable<infer X> ? X : never
+type ExtractData<Type> = Type extends Readable<infer X> ? X : never;
 interface VSCodeData {
-    lang?: string,
-    workspace?: string,
-    branch?: string,
-    idling?: boolean,
+	lang?: string;
+	editing?: string;
+	folder?: string;
+	idling?: boolean;
 }
 
 interface Activity {
-    name: string,
-    start?: Date
+	name: string;
+	start?: Date;
 }
 
-export const getCodeData = (data: ExtractData<ReturnType<typeof useLanyard>>): VSCodeData | undefined => {
-    // Unknown cast is a workaround for the fact that `application_id` is a string but the interface is wrong
-    const codeActivity = data?.activities?.find?.(a => a.application_id as unknown as string === '782685898163617802');
+export const getCodeData = (
+	data: ExtractData<ReturnType<typeof useLanyard>>
+): VSCodeData | undefined => {
+	// Unknown cast is a workaround for the fact that `application_id` is a string but the interface is wrong
+	const codeActivity = data?.activities?.find?.(
+		(a) => (a.application_id as unknown as string) === '732565262704050298'
+	);
 
-    if (!codeActivity) {
-        return undefined;
-    }
+	if (!codeActivity) {
+		return undefined;
+	}
 
-    const idling = codeActivity?.details === 'Idling';
-    if (idling) {
-        return {
-            idling: true,
-        }
-    }
+	const idling = codeActivity?.details === 'Idling';
+	if (idling) {
+		return {
+			idling: true
+		};
+	}
 
-    const workspace = codeActivity.details?.substring(3).split(' - ')[0];
-    const branch = codeActivity.details?.substring(3).split(' - ')[1];
-    const lang = codeActivity.assets?.large_text?.split(' ')[2]?.toLocaleLowerCase();
+	const editing = codeActivity.details?.substring(3).split(' - ')[0];
+	let folder = codeActivity.state.split('📂 ')[1];
+	const lang = codeActivity.assets?.large_text?.split(' file')[0]?.toLocaleLowerCase();
 
-    return {
-        lang,
-        workspace,
-        branch,
-    }
-}
+	const splitFolder = folder.split(' ');
+	splitFolder.shift();
+	folder = splitFolder.join(' ');
 
-export const getOtherActivities = (data: ExtractData<ReturnType<typeof useLanyard>>): Activity[] | undefined => {
-    // Unknown cast is a workaround for the fact that `application_id` is a string but the interface is wrong
-    const otherActivities = data?.activities?.filter?.(a => a.application_id as unknown as string !== '782685898163617802' && a.type === 0);
-    return otherActivities?.map?.(activity => ({ name: activity.name, start: activity.timestamps ? new Date(activity.timestamps.start) : undefined }));
-}
+	return {
+		lang,
+		editing,
+		folder
+	};
+};
+
+export const getOtherActivities = (
+	data: ExtractData<ReturnType<typeof useLanyard>>
+): Activity[] | undefined => {
+	// Unknown cast is a workaround for the fact that `application_id` is a string but the interface is wrong
+	const otherActivities = data?.activities?.filter?.(
+		(a) => (a.application_id as unknown as string) !== '732565262704050298' && a.type === 0
+	);
+	return otherActivities?.map?.((activity) => ({
+		name: activity.name,
+		start: activity.timestamps ? new Date(activity.timestamps.start) : undefined
+	}));
+};
