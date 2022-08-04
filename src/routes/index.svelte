@@ -6,7 +6,7 @@
 	import { DateTime } from 'luxon';
 	// Components
 	import ProjectItem from '$lib/components/ProjectItem.svelte';
-	import { getCodeData, getOtherActivities } from '$lib/rpcUtils';
+	import { getAppleMusicData, getCodeData, getOtherActivities } from '$lib/rpcUtils';
 	// Lanyard stuff
 	import { onMount } from 'svelte';
 	import type { useLanyard } from 'svelte-lanyard';
@@ -61,6 +61,7 @@
 		console.log("lanyard mounted")
 	});
 	$: codeData = getCodeData($data);
+	$: appleMusicData = getAppleMusicData($data);
 	$: otherActivities = getOtherActivities($data);
 </script>
 
@@ -144,11 +145,18 @@
 				<span>{time}</span>
 			</div>
 		{/if}
+		{#if appleMusicData}
+		<div class="flex flex-col items-start sm:items-end">
+			<span class="text-arc-700 dark:text-arc-400">listening to <span class="text-arc-900 dark:text-arc-100">{appleMusicData.song_name?.toLocaleLowerCase()}</span> on apple music</span>	
+			<span class="text-arc-700 dark:text-arc-400">by <span class="text-arc-900 dark:text-arc-100">{appleMusicData.artist?.toLocaleLowerCase()}</span></span>
+			<span class="text-arc-700 dark:text-arc-400">on <span class="text-arc-900 dark:text-arc-100">{appleMusicData.album_name?.toLocaleLowerCase()}</span></span>
+		</div>
+		{/if}
 		{#if $data?.spotify}
 			<div class="flex flex-col items-start sm:items-end">
-				<span class="text-arc-900 dark:text-arc-100">{$data.spotify?.song}</span>
-				<span class="text-arc-800 dark:text-arc-300">{$data.spotify?.artist}</span>
-				<span class="text-arc-700 dark:text-arc-400">{$data.spotify?.album}</span>
+				<span class="text-arc-700 dark:text-arc-400">listening to <a href={`https://open.spotify.com/track/${$data.spotify.track_id}`}><span class="text-arc-900 dark:text-arc-100 underline">{$data.spotify?.song.toLocaleLowerCase()}</span></a> on spotify</span>	
+				<span class="text-arc-700 dark:text-arc-400">by <span class="text-arc-900 dark:text-arc-100">{$data.spotify?.artist.toLocaleLowerCase()}</span></span>
+				<span class="text-arc-700 dark:text-arc-400">on <span class="text-arc-900 dark:text-arc-100">{$data.spotify?.album.toLocaleLowerCase()}</span></span>
 			</div>
 		{/if}
 		{#if codeData?.idling}
@@ -173,7 +181,7 @@
 			{#each otherActivities as activity}
 				<div class="flex flex-col items-start sm:items-end">
 					<span class="text-arc-700 dark:text-arc-400"
-						>playing <span class="text-arc-700 dark:text-arc-200">{activity.name}</span>
+						>playing <span class="text-arc-700 dark:text-arc-200">{activity.name.toLocaleLowerCase()}</span>
 						{#if activity.start}
 							for {DateTime.fromJSDate(activity.start)
 								.toRelative({
