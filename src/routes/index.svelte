@@ -65,7 +65,7 @@
 </script>
 
 <svelte:head>
-	<title>portfolio</title>
+	<title>polar</title>
 	<meta name="og:title" content="polar.blue" />
 	<meta name="description" content={`${age.toPrecision(4)} y/o software engineer & community manager`} />
 	<meta name="og:description" content={`${age.toPrecision(4)} y/o software engineer & community manager`} />
@@ -79,11 +79,11 @@
 	<div class="flex flex-col gap-7">
 		<div class="min-h-[3em] lg:min-h-0">
 			<h1 class="text-arc-700 dark:text-arc-300">
-				<span class="dark:text-arc-blue">polar, <span class="text-arc-700 dark:text-arc-200">{age.toPrecision(11)} y/o </span> software engineer & community manager</span>
+				<span class="dark:text-arc-blue">polar, <span class="text-arc-700 dark:text-arc-200 font-extrabold">{age.toPrecision(11)} y/o </span> software engineer & community manager</span>
 			</h1>
 		</div>
 		<div>
-			<h1 class="text-arc-900 dark:text-arc-100">projects</h1>
+			<h1 class="text-arc-900 dark:text-arc-100 font-extrabold">projects</h1>
 			<ul class="list-disc list-inside text-arc-700 dark:text-arc-blue">
 				<ProjectItem
 					href="https://spacedrive.com"
@@ -108,7 +108,7 @@
 			</ul>
 		</div>
 		<div>
-			<h1 class="text-arc-900 dark:text-arc-100">old</h1>
+			<h1 class="text-arc-900 dark:text-arc-100 font-extrabold">old</h1>
 			<ul class="list-disc list-inside text-arc-700 dark:text-arc-blue">
 			<ProjectItem
 					href="https://github.com/otterdevelopment/positivepeter"
@@ -118,8 +118,9 @@
 			</ul>
 		</div>
 		<div>
-			<h1 class="text-arc-900 dark:text-arc-100">links</h1>
+			<h1 class="text-arc-900 dark:text-arc-100 font-extrabold">links</h1>
 			<ul class="list-disc list-inside text-arc-700 dark:text-arc-blue">
+				<ProjectItem href="https://haste.polars.cloud" name="hastebin" />
 				<ProjectItem href="https://discord.gg/VvE5ucuJmW" name="discord" />
 				<ProjectItem href="https://twitter.com/xpolarrr" name="twitter" />
 				<ProjectItem href="https://github.com/xpolar" name="github" />
@@ -146,34 +147,34 @@
 		{/if}
 		{#if appleMusicData}
 		<div class="flex flex-col items-start sm:items-end">
-			<span class="text-arc-700 dark:text-arc-400">listening to <span class="text-arc-900 dark:text-arc-100">{appleMusicData.song_name?.toLocaleLowerCase()}</span> on apple music</span>	
-			<span class="text-arc-700 dark:text-arc-400">by <span class="text-arc-900 dark:text-arc-100">{appleMusicData.artist?.toLocaleLowerCase()}</span></span>
-			<span class="text-arc-700 dark:text-arc-400">on <span class="text-arc-900 dark:text-arc-100">{appleMusicData.album_name?.toLocaleLowerCase()}</span></span>
+			<span class="text-arc-700 dark:text-arc-400">listening to <span class="text-arc-900 dark:text-arc-100 font-extrabold">{appleMusicData.song_name?.toLocaleLowerCase()}</span> on apple music</span>	
+			<span class="text-arc-700 dark:text-arc-400">by <span class="text-arc-900 dark:text-arc-100 font-extrabold">{appleMusicData.artist?.toLocaleLowerCase()}</span></span>
+			<span class="text-arc-700 dark:text-arc-400">on <span class="text-arc-900 dark:text-arc-100 font-extrabold">{appleMusicData.album_name?.toLocaleLowerCase()}</span></span>
 		</div>
 		{/if}
 		{#if $data?.spotify}
 			<div class="flex flex-col items-start sm:items-end">
-				<span class="text-arc-700 dark:text-arc-400">listening to <a href={`https://open.spotify.com/track/${$data.spotify.track_id}`}><span class="text-arc-900 dark:text-arc-100 underline">{$data.spotify?.song.toLocaleLowerCase()}</span></a> on spotify</span>	
-				<span class="text-arc-700 dark:text-arc-400">by <span class="text-arc-900 dark:text-arc-100">{$data.spotify?.artist.toLocaleLowerCase()}</span></span>
-				<span class="text-arc-700 dark:text-arc-400">on <span class="text-arc-900 dark:text-arc-100">{$data.spotify?.album.toLocaleLowerCase()}</span></span>
+				<span class="text-arc-700 dark:text-arc-400">listening to <a href={`https://open.spotify.com/track/${$data.spotify.track_id}`}><span class="text-arc-900 dark:text-arc-100 font-extrabold underline">{$data.spotify?.song.toLocaleLowerCase()}</span></a> on spotify</span>	
+				<span class="text-arc-700 dark:text-arc-400">by <span class="text-arc-900 dark:text-arc-100 font-extrabold">{$data.spotify?.artist.toLocaleLowerCase()}</span></span>
+				<span class="text-arc-700 dark:text-arc-400">on <span class="text-arc-900 dark:text-arc-100 font-extrabold">{$data.spotify?.album.toLocaleLowerCase()}</span></span>
 			</div>
 		{/if}
 		{#if codeData?.idling}
 			<div class="flex flex-col items-start sm:items-end">
-				<span class="text-arc-900 dark:text-arc-100">vsc</span>
+				<span class="text-arc-900 dark:text-arc-100 font-extrabold">vsc</span>
 				<span class="text-arc-700 dark:text-arc-400">currently idling</span>
 			</div>
 		{/if}
 		{#if codeData && !codeData.idling}
 			<div class="flex flex-col items-start sm:items-end">
-				<span class="text-arc-900 dark:text-arc-100">vsc</span>
+				<span class="text-arc-900 dark:text-arc-100 font-extrabold">vsc</span>
 				<span class="text-arc-800 dark:text-arc-300"
-					>working on <span class="text-arc-700 dark:text-arc-200">{codeData.folder?.toLocaleLowerCase()}</span></span
+					>working on <span class="text-arc-700 dark:text-arc-100 font-extrabold">{codeData.folder?.toLocaleLowerCase()}</span></span
 				>
 				{#if codeData.editing} 
 					<span class="text-arc-700 dark:text-arc-400"
 						>currently 
-						<span class="text-arc-700 dark:text-arc-200">{codeData.editing?.toLocaleLowerCase()}</span>
+						<span class="text-arc-700 dark:text-arc-100 font-extrabold">{codeData.editing?.toLocaleLowerCase()}</span>
 					</span>
 				{/if}
 			</div>
