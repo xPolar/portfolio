@@ -104,9 +104,9 @@
 					description="a file explorer from the future"
 				/>
 				<ProjectItem
-					href="https://tixte.com"
-					name="tixte.com"
-					description="home to your best moments"
+					href="https://github.com/otterdevelopment/simplemod"
+					name="simplemod"
+					description="advanced moderation tool for communities"
 				/>
 				<ProjectItem
 					href="https://github.com/otterdevelopment/beemohelper"
@@ -117,6 +117,11 @@
 					href="https://github.com/otterdevelopment/astro"
 					name="astro"
 					description="powerful discord suggestion bot"
+				/>
+				<ProjectItem
+					href="https://tixte.com"
+					name="tixte.com"
+					description="home to your best moments"
 				/>
 			</ul>
 		</div>
