@@ -136,6 +136,7 @@
 				<ProjectItem href="https://haste.polars.cloud" name="hastebin" />
 				<ProjectItem href="https://discord.gg/VvE5ucuJmW" name="discord" />
 				<ProjectItem href="https://twitter.com/xpolarrr" name="twitter" />
+				<ProjectItem href="https://ko-fi.com/xpolar" name="donate" />
 				<ProjectItem href="https://github.com/xpolar" name="github" />
 				<ProjectItem href="mailto:polar@polar.blue" name="email" />
 			</ul>
