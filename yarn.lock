@@ -1804,6 +1804,11 @@ svelte-check@^2.7.1:
     svelte-preprocess "^4.0.0"
     typescript "*"
 
+svelte-confetti@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/svelte-confetti/-/svelte-confetti-1.2.0.tgz#754a5af1c066751c06d6b393ceafb02ffff84fb3"
+  integrity sha512-6njSCc2mzNQpgxd6VnIkS8yhdbL9np9uTpK6bdmbephmLvI0+km0cBdfuM+MLmceVdW9Frx+ibwCFPDq/dBd1g==
+
 svelte-hmr@^0.14.12:
   version "0.14.12"
   resolved "https://registry.yarnpkg.com/svelte-hmr/-/svelte-hmr-0.14.12.tgz#a127aec02f1896500b10148b2d4d21ddde39973f"

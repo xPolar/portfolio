@@ -15,13 +15,19 @@ interface Activity {
 
 export const getAppleMusicData = (data: ExtractData<ReturnType<typeof useLanyard>>) => {
 	const appleMusic = data?.activities.find?.(
-		(a) => (a.application_id as unknown as string) === '773825528921849856'
+		(a) => (a.application_id as unknown as string) === '886578863147192350'
 	);
 
 	if (!appleMusic) return undefined;
 
+	const artistSplit = appleMusic.state.split('by ');
+	artistSplit.shift();
+	const artist = artistSplit.join('by ');
+
+	console.log(appleMusic);
+
 	return {
-		artist: appleMusic.state,
+		artist,
 		song_name: appleMusic.details,
 		album_name: appleMusic.assets?.large_text
 	};
@@ -67,7 +73,7 @@ export const getOtherActivities = (
 	// Unknown cast is a workaround for the fact that `application_id` is a string but the interface is wrong
 	const otherActivities = data?.activities?.filter?.(
 		(a) =>
-			!['732565262704050298', '773825528921849856'].includes(
+			!['732565262704050298', '886578863147192350'].includes(
 				a.application_id as unknown as string
 			) && a.type === 0
 	);
