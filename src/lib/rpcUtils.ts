@@ -24,8 +24,6 @@ export const getAppleMusicData = (data: ExtractData<ReturnType<typeof useLanyard
 	artistSplit.shift();
 	const artist = artistSplit.join('by ');
 
-	console.log(appleMusic);
-
 	return {
 		artist,
 		song_name: appleMusic.details,
