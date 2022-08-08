@@ -55,11 +55,10 @@
 	let data: ReturnType<typeof useLanyard>;
 	onMount(async () => {
 		const { useLanyard } = await import('svelte-lanyard');
-		data = useLanyard('619284841187246090', { type: 'rest', restInterval: 1e3 });
+		data = useLanyard('619284841187246090');
 	});
 	$: codeData = getCodeData($data);
 	$: appleMusicData = getAppleMusicData($data);
-	// {ageMS / YEAR % 1 === 0}
 	$: otherActivities = getOtherActivities($data);
 </script>
 
