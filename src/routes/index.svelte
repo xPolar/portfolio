@@ -36,7 +36,7 @@
  	const MINUTE = SECOND * 60;
  	const HOUR = MINUTE * 60;
  	const DAY = HOUR * 24;
- 	const YEAR = DAY * 365;
+ 	const YEAR = DAY * 365.25;
 
 	const bday = new Date('31 August 2005 00:00:00 PST');
 
@@ -47,7 +47,7 @@
 		now = new Date();
 		ageMS = Date.now() - bday.getTime();
 	}, 100);
-
+	
 	$: date = dateFormatter.format(now);
 	$: time = timeFormatter.format(now);
 	$: ageMS
@@ -75,7 +75,7 @@
 <section
 	class="p-8 sm:p-12 lg:p-24 lg:py-16 font-jetbrains z-10 flex flex-col sm:flex-row gap-y-10 justify-between"
 >
-	{#if ageMS / DAY % 365 === 0}
+	{#if parseInt((ageMS / DAY % 365.25).toString()) === 0}
 	<div style="
 		position: fixed;
 		top: -50px;
