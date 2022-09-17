@@ -148,7 +148,7 @@
 				<ProjectItem href="https://ko-fi.com/xpolar" name="donate" />
 				<ProjectItem href="https://github.com/xpolar" name="github" />
 				<ProjectItem href="mailto:polar@polar.blue" name="email" />
-				<ProjectItem href="../../static/resume.pdf" name="resume" />
+				<ProjectItem href="/resume.pdf" name="resume" />
 			</ul>
 		</div>
 	</div>
