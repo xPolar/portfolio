@@ -78,7 +78,7 @@
 				<ProjectItem
 					href="https://renderflux.com"
 					name="renderflux.com"
-					description="the home for creativity through artificial intelligence"
+					description="the home for creativity through ai"
 				/>
 				<ProjectItem
 					href="https://github.com/otterdevelopment/simplemod"
