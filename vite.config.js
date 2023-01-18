@@ -5,7 +5,7 @@ const config = {
 	plugins: [sveltekit()],
 	server: {
 		fs: {
-			allow: ['./static/resume.pdf']
+			allow: ['./static/resume.pdf', './static/fundraiser.pdf']
 		}
 	}
 };
